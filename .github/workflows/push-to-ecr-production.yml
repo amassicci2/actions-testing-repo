@@ -15,6 +15,7 @@ jobs:
           echo "VERSION_TAG=$(echo $GITHUB_REF | cut -d'/' -f 3 | cut -d'-' -f 2)" >> "$GITHUB_OUTPUT"
           echo "COMPONENT_NAME=$(echo $GITHUB_REF | cut -d'/' -f 3 | cut -d'-' -f 1)" >> "$GITHUB_OUTPUT"
       - name: Display component name and version tag
+        if: ${{ steps.get-tag-components.outputs.COMPONENT_NAME == "api" || steps.get-tag-components.outputs.COMPONENT_NAME == 'bank' }}
         env:
           COMPONENT_NAME: ${{ steps.get-tag-components.outputs.COMPONENT_NAME }}
           VERSION_TAG: ${{ steps.get-tag-components.outputs.VERSION_TAG }}
