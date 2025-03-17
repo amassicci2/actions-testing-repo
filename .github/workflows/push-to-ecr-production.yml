@@ -1,0 +1,15 @@
+name: 'push-to-ecr-production'
+
+on:
+  release:
+    types: [published]
+env:
+  AWS_REGION: us-east-1
+jobs:
+  deploy-to-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get component name and version tag
+        run: |
+          echo "Hello world!"
+
