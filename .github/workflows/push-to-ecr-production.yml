@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Get component name and version tag
         run: |
-          echo ${{ GITHUB_REF }}
+          echo $GITHUB_REF
 
 
